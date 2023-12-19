@@ -1,38 +1,36 @@
-#include <iostream>
+from abc import ABC, abstractmethod
 
-class Shape {
-public:
-    virtual void draw() const = 0;
+class Fruit(ABC):
 
-    void printMessage() const {
-        cout << "This is a shape." << endl;
-    }
-};
+    def __init__(self, name):
+        self.name = name
 
-class Circle : public Shape {
-public:
-    void draw() const override {
-        cout << "circle" << endl;
-    }
-};
+    @abstractmethod
+    def peel(self):
+        pass
+        
+class Apple(Fruit):
 
-class Square : public Shape {
-public:
-    void draw() const override {
-        cout << "square" << endl;
-    }
-};
+    def peel(self):
+        print(f"Peeling the skin of {self.name}.")
 
-int main() {
-   
-    Shape* shape1 = new Circle();
-    Shape* shape2 = new Square();
-    shape1->draw();
-    shape1->printMessage();
-    shape2->draw();
-    shape2->printMessage();
-    delete shape1;
-    delete shape2;
 
-    return 0;
-}
+class Banana(Fruit):
+
+    def peel(self):
+        print(f"Peeling the skin of {self.name}.")
+
+class Orange(Fruit):
+
+    def peel(self):
+        print(f"Peeling the skin of {self.name}.")
+
+ 
+apple = Apple("Red Apple")
+banana = Banana("Yellow Banana")
+orange = Orange("Orange")
+
+apple.peel()
+banana.peel()
+orange.peel()
+
