@@ -1,34 +1,36 @@
 from abc import ABC, abstractmethod
 
-class Fruit(ABC):
-
-    def __init__(self, name):
-        self.name = name
+class Shape(ABC):
 
     @abstractmethod
-    def peel(self):
+    def draw(self):
         pass
-        
-class Apple(Fruit):
 
-    def peel(self):
-        print(f"Peeling the skin of {self.name}.")
+    def print_message(self):
+        print("This is a shape.")
 
+class Circle(Shape):
 
-class Banana(Fruit):
+    def draw(self):
+        print("circle")
 
-    def peel(self):
-        print(f"Peeling the skin of {self.name}.")
+class Square(Shape):
 
-class Orange(Fruit):
+    def draw(self):
+        print("square")
 
-    def peel(self):
-        print(f"Peeling the skin of {self.name}.")
+def main():
+    shape1 = Circle()
+    shape2 = Square()
 
- 
-apple = Apple("Red Apple")
-banana = Banana("Yellow Banana")
-orange = Orange("Orange")
+    shape1.draw()
+    shape1.print_message()
+    shape2.draw()
+    shape2.print_message()
+
+if __name__ == "__main__":
+    main()
+
 
 apple.peel()
 banana.peel()
